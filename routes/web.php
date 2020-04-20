@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/', "HomePagesController@home");
+Route::get('/', "HomePagesController@home")->name('home');
+
+Route::get('signup', 'UsersController@create')->name('signup');
