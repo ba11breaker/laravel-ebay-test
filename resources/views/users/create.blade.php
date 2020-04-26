@@ -8,8 +8,11 @@
         <h5>Sign Up</h5>
       </div>
       <div class="card-body">
+
+        @include('shared._errors')
+
         <form method="POST" action="{{ route('users.store') }}">
-            {{ csrf_filed() }}
+            {{ csrf_field() }}
 
             <div class="form-group">
               <label for="name">Name：</label>
