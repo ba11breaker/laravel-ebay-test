@@ -9,6 +9,17 @@ use Auth;
 class UsersController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'except' => ['show', 'create', 'store']
+        ]);
+
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
     public function create()
     {
         return view('users.create');
@@ -54,8 +65,8 @@ class UsersController extends Controller
         if($request->password) {
             $data['password'] = bcrypt($request->password);
         }
-        $user->update($user);
+        $user->update($data);
         session()->flash('success', 'Personal Profile Update Successfully');
-        return redirect()->route('user.show', $user->id);
+        return redirect()->route('users.show', $user->id);
     }
 }

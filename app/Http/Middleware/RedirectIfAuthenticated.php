@@ -19,7 +19,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            session()->flash('info', 'You have already logged in, no need to do it again.');
+            return redirect('/');
         }
 
         return $next($request);
