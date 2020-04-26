@@ -14,3 +14,4 @@
 Route::get('/', "HomePagesController@home")->name('home');
 
 Route::get('signup', 'UsersController@create')->name('signup');
+Route::resource('users', 'UsersController');
