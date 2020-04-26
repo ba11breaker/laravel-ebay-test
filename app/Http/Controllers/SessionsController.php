@@ -21,7 +21,7 @@ class SessionsController extends Controller
 
         if (Auth::attempt($credentials)) {
             session()->flash('success', 'Welcome back！');
-            return redirect()->route('users.show', [Auth::user()]);
+            return redirect()->route('users.show', [Auth::user()->id]);
         } else {
             session()->flash('danger', 'Sorry, your email or password might be incorrect');
             return redirect()->back()->withInput();
