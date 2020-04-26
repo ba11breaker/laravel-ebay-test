@@ -23,12 +23,19 @@
             <input type="password" name="password" class="form-control" value="{{ old('password') }}">
           </div>
 
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="remember" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Remember me</label>
+            </div>
+          </div>
+
           <button type="submit" class="btn btn-primary">Log in</button>
       </form>
 
       <hr>
 
-      <p>Don't have an account? <a href="{{ route('signup') }}">Log in now！</a></p>
+      <p>Don't have an account? <a href="{{ route('signup') }}">Sign up now！</a></p>
     </div>
   </div>
 </div>
