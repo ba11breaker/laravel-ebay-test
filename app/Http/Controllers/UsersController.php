@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
+use Mail;
 
 class UsersController extends Controller
 {
@@ -12,7 +13,7 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth', [
-            'except' => ['create', 'store']
+            'except' => ['create', 'store', 'confirmEmail']
         ]);
 
         $this->middleware('guest', [
@@ -43,9 +44,9 @@ class UsersController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        Auth::login($user);
-        session()->flash('success', 'Welcome!');
-        return redirect()->route('users.show', [$user->id]);
+        $this->sendEmailConfirmationTo($user);
+        session()->flash('success', 'Confirmation email has been send to your email! Please confirm it.');
+        return redirect('/');
     }
 
     public function edit(User $user)
@@ -70,5 +71,32 @@ class UsersController extends Controller
         $user->update($data);
         session()->flash('success', 'Personal Profile Update Successfully');
         return redirect()->route('users.show', $user->id);
+    }
+
+    protected function sendEmailConfirmationTo($user)
+    {
+        $view = 'emails.confirm';
+        $data = compact('user');
+        $from = 's4553899@uq.com';
+        $name = 's4553899';
+        $to = $user->email;
+        $subject = "Thank you for signing up Ebay! Please confirm your email.";
+
+        Mail::send($view, $data, function ($message) use ($from,  $name, $to, $subject) {
+            $message->from($from, $name)->to($to)->subject($subject);
+        });
+    }
+
+    public function confirmEmail($token)
+    {
+        $user = User::where('activation_token', $token)->firstOrFail();
+
+        $user->activated = true;
+        $user->activation_token = null;
+        $user->save();
+
+        Auth::login($user);
+        session()->flash('success', 'Sign up successfully!');
+        return redirect()->route('users.show', [$user]);
     }
 }
