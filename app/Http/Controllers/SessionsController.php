@@ -13,6 +13,7 @@ class SessionsController extends Controller
             'only' => ['create']
         ]);
     }
+    
     public function create()
     {
         return view('sessions.create');
