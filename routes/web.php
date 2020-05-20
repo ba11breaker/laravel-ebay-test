@@ -28,3 +28,5 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 Route::resource('goods', 'GoodsController', ['only' => ['store', 'show', 'update']]);
+
+Route::resource('comments', 'CommentsController', ['only' => ['store']]);

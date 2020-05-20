@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
+    protected $fillable = ['content', 'commenter_id', 'good_id'];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'commenter_id');

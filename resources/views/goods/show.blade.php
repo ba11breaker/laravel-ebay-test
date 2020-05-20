@@ -4,6 +4,7 @@
 @section('content')
 <div class="row">
     <div class="offset-md-2 col-md-8">
+    <h2>Good Info</h2>
         <h4>ID Number: {{$good->id}}</h4>
         <h4>Name: {{$good->name}}</h4>
         <h4>Favourites: {{$good->favourites}}</h4>
@@ -13,7 +14,15 @@
 </div>
 <div style="width:20px;height:50px;"></div>
 <div class="row">
+    <div class="offset-md-2 col-md-8">
+        <section class="comment_form">
+            @include('comments._comment_form')
+        </section>
+    </div>
+</div>
+<div class="row">
     <div class="offset-md-2 col-md-8 comment">
+        <h2>Comments list</h2>
         @if ($comments->count() > 0)
             <ul class="list-unstyled">
                 @foreach ($comments as $comment)
