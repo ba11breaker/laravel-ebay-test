@@ -29,7 +29,7 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $goods = $user->goods()
-                        ->orderBy('created_at', 'desc')
+                        ->orderBy('favourites', 'desc')
                         ->paginate(10);
         return view('users.show', compact('user', 'goods'));
     }

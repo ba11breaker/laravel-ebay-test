@@ -12,7 +12,7 @@ class HomePagesController extends Controller
     //
     public function home()
     {   
-        $goods = DB::table('goods')->get();
+        $goods = DB::table('goods')->orderBy('favourites', 'desc')->get();
         return view("static_pages.home", compact('goods'));
     }
 }

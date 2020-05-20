@@ -29,4 +29,14 @@ class GoodsController extends Controller
         session()->flash('success', 'Publish Successfully');
         return redirect()->back();
     }
+
+    public function update(Goods $good, Request $request)
+    {
+        $data = [];
+        if($request->update === 'favourite') {
+            $data['favourites'] = $good['favourites']+1;
+        }
+        $good->update($data);
+        return redirect()->back();
+    }
 }
