@@ -1,7 +1,9 @@
 <li class="media mt-4 mb-4">
     <div class="media-body">
         <h5 class="media-body">
-            {{ $good->name }} 
+            <a href="{{route('goods.show', $good->id)}}">
+                {{ $good->name }} 
+            </a>
         <small>/Favourites: {{ $good->favourites }}</small>
         </h5>
         {{ $good->description }}

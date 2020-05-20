@@ -39,4 +39,9 @@ class GoodsController extends Controller
         $good->update($data);
         return redirect()->back();
     }
+
+    public function show(Goods $good)
+    {
+        return view('goods.show', compact('good'));
+    }
 }
