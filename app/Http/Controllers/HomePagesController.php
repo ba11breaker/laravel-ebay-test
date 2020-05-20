@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Goods;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class HomePagesController extends Controller
 {
     //
     public function home()
-    {
-        return view("static_pages.home");
+    {   
+        $goods = DB::table('goods')->get();
+        return view("static_pages.home", compact('goods'));
     }
 }
