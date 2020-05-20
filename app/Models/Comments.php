@@ -13,6 +13,6 @@ class Comments extends Model
 
     public function good()
     {
-        return $this->belongsTo(Goods::class);
+        return $this->belongsTo(Goods::class, 'good_id');
     }
 }
