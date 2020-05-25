@@ -19,6 +19,13 @@
             @include('comments._comment_form')
         </section>
     </div>
+    @if (Auth::user()->id != $good->user->id)
+    <div class="offset-md-2 col-md-8">
+        <section class="bidding_form">
+            @include('biddings._bidding_form')
+        </section>
+    </div>
+    @endif
 </div>
 <div class="row">
     <div class="offset-md-2 col-md-8 comment">
