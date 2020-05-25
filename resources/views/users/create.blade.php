@@ -33,7 +33,14 @@
               <label for="password_confirmation">Password Confirmation：</label>
               <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
             </div>
-  
+
+            <div class="form-group">
+              <label for="captcha">Captcha:</label>
+              <div class="col-md-8">
+                <input id="captcha" name="captcha" required>
+                <img src="{{captcha_src('flat')}}" onclick="this.src='/captcha/flat?'+Math.random()" title="click to get another captcha">
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
       </div>
