@@ -17,4 +17,9 @@ class Goods extends Model
     {
         return $this->hasMany(Comments::class, 'good_id');
     }
+
+    public function biddings()
+    {
+        return $this->hasMany(Biddings::class, 'good_id');
+    }
 }

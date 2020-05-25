@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comments::class, 'commenter_id');
     }
+
+    public function biddings()
+    {
+        return $this->hasMany(Biddings::class, 'bidder_id');
+    }
 }
