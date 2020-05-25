@@ -45,6 +45,9 @@ class GoodsController extends Controller
         $comments = $good->comments()
                             ->orderBy('created_at', 'desc')
                             ->paginate(10);
-        return view('goods.show', compact('good', 'comments'));
+        $biddings = $good->biddings()
+                            ->orderBy('offer_price', 'desc')
+                            ->paginate(10);
+        return view('goods.show', compact('good', 'comments', 'biddings'));
     }
 }

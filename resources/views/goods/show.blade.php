@@ -37,4 +37,21 @@
         @endif
     </div>
 </div>
+<div class="row">
+    <div class="offset-md-2 col-md-8 comment">
+        <h2>Biddings list</h2>
+        @if ($biddings->count() > 0)
+            <ul class="list-unstyled">
+                @foreach ($biddings as $bidding)
+                    @include('biddings._bidding')
+                @endforeach
+            </ul>
+            <div class="mt-5">
+                {!! $biddings->render() !!}
+            </div>
+        @else
+            <p>No Biddings!</p>
+        @endif
+    </div>
+</div>
 @stop
