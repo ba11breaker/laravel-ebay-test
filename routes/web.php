@@ -32,3 +32,5 @@ Route::resource('goods', 'GoodsController', ['only' => ['store', 'show', 'update
 Route::resource('comments', 'CommentsController', ['only' => ['store']]);
 
 Route::resource('biddings', 'BiddingsController', ['only' => ['store']]);
+
+Route::post('pdf', 'PdfController@store')->name('pdf');

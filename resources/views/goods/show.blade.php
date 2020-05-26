@@ -15,6 +15,11 @@
 <div style="width:20px;height:50px;"></div>
 <div class="row">
     <div class="offset-md-2 col-md-8">
+        <section class="pdf">
+            @include('goods._pdf')
+        </section>
+    </div>
+    <div class="offset-md-2 col-md-8">
         <section class="comment_form">
             @include('comments._comment_form')
         </section>
