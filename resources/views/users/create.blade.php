@@ -46,4 +46,26 @@
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    $ajaxSetup({
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    });
+    $(.primary).click(function(e){
+      e.preventDefault();
+
+      var name = $("input[name=name]").val();
+      var password = $("input[name=password]").val();
+      var email = $("input[name=email]").val();
+      var password_confirmation = $("input[name=password_confirmation]").val();
+    });
+    $.ajax({
+      type:'POST',
+      url:"{{ route('users.store') }}",
+      data:{name:name, password:password, email:email},
+      success:function(data) {
+        console.log('success');
+      }
+    })
+  </script>
 @stop
