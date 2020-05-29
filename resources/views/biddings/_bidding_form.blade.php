@@ -9,4 +9,5 @@
     <div class="text-right">
         <button type="submit" class="btn btn-primary mt-3">Bid it</button>
     </div>
+    
 </form>

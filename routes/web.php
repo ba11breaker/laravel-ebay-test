@@ -34,3 +34,6 @@ Route::resource('comments', 'CommentsController', ['only' => ['store']]);
 Route::resource('biddings', 'BiddingsController', ['only' => ['store']]);
 
 Route::post('pdf', 'PdfController@store')->name('pdf');
+
+Route::get('searchBiddings', 'BiddingsController@home')->name('biddings.search');
+Route::get('getBiddings', 'BiddingsController@getBiddings')->name('biddings.results');
