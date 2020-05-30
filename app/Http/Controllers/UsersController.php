@@ -31,7 +31,10 @@ class UsersController extends Controller
         $goods = $user->goods()
                         ->orderBy('favourites', 'desc')
                         ->paginate(10);
-        return view('users.show', compact('user', 'goods'));
+        $carts = $user->carts()
+                        ->orderBy('id', 'desc')
+                        ->paginate(10);
+        return view('users.show', compact('user', 'goods', 'carts'));
     }
 
     public function store(Request $request)

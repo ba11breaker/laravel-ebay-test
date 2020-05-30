@@ -13,6 +13,7 @@
       <br />
       <section class="good">
       <h2>Goods List</h2>
+      <hr />
         @if ($goods->count() > 0)
             <ul class="list-unstyled">
               @foreach ($goods as $good)
@@ -22,6 +23,23 @@
             <div class="mt-5">
               {!! $goods->render() !!}
             </div>
+        @else
+            <p>No data</p>
+        @endif
+      </section>
+      <br />
+      <section class="cart">
+      <h2>Cart</h2>
+      <hr />
+        @if ($carts->count() > 0)
+          <ul class="list-unstyled">
+            @foreach ($carts as $cart)
+                @include('carts._cart')
+            @endforeach
+          </ul>
+          <div class="mt-5">
+            {!! $carts->render() !!}
+          </div>
         @else
             <p>No data</p>
         @endif
