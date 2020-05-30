@@ -22,4 +22,9 @@ class Goods extends Model
     {
         return $this->hasMany(Biddings::class, 'good_id');
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Carts::class, 'good_id');
+    }
 }
