@@ -14,6 +14,13 @@
 </div>
 <div style="width:20px;height:50px;"></div>
 <div class="row">
+    @if ($good->user_id != Auth::User()->id)
+    <div class="offset-md-2 col-md-8">
+        <section class="cart_form">
+            @include('carts._cart_form')
+        </section>
+    </div>
+    @endif
     <div class="offset-md-2 col-md-8">
         <section class="pdf">
             @include('goods._pdf')

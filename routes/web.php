@@ -37,3 +37,5 @@ Route::post('pdf', 'PdfController@store')->name('pdf');
 
 Route::get('searchBiddings', 'BiddingsController@home')->name('biddings.search');
 Route::get('getBiddings', 'BiddingsController@getBiddings')->name('biddings.results');
+
+Route::resource('carts', 'CartsController', ['only' => ['store', 'destroy']]);

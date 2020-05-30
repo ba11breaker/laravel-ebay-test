@@ -15,6 +15,6 @@ class Carts extends Model
 
     public function good()
     {
-        return $this->belongsTo(Good::class, 'good_id');
+        return $this->belongsTo(Goods::class, 'good_id');
     }
 }

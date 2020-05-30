@@ -8,4 +8,13 @@
         {{$cart->good->description}}
     </div>
 </li>
+@if ($good->user_id == Auth::user()->id)
+    <form action="{{route('carts.destroy', $cart->id)}}" method="POST">
+        {{csrf_field()}}
+        {{method_field('DELETE')}}
+        <button type="submit" class="btn btn-sm btn-danger">
+            Remove
+        </button>
+    </form>
+@endif
 <hr>
